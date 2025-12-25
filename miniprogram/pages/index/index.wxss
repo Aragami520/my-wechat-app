@@ -1,6 +1,7 @@
 /* pages/index/index.wxss */
 page {
-  background-color: #f5f5f5;
+  background-color: #f2f2f2;
+  /* 水印保留 */
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-size='24' opacity='0.05'%3E🌽%3C/text%3E%3C/svg%3E");
   background-attachment: fixed;
   width: 100%;
@@ -8,127 +9,125 @@ page {
 }
 
 .container { 
+  /* ⚠️注意：把container的内边距去掉，防止它挤压卡片宽度 */
   padding-bottom: 40rpx; 
   width: 100%; 
   overflow-x: hidden; 
+  padding-left: 0;
+  padding-right: 0;
 }
 
 /* === 1. 顶部轮播图 === */
-.banner-box { 
-  width: 100%;
-  height: 420rpx; 
-  position: relative; 
-}
+.banner-box { width: 100%; height: 420rpx; position: relative; }
 .swiper { width: 100%; height: 100%; }
 .slide-image { width: 100%; height: 100%; background: #ffe082; }
 
-/* === 2. 公告栏 === */
+/* === 2. 公告栏 (稍微留点边距，跟下面卡片对齐) === */
 .notice-bar { 
   display: flex; align-items: center; 
-  /* 左右边距跟下面的商品对齐，只留 10rpx */
-  margin: 16rpx 10rpx 10rpx; 
-  background: rgba(255, 255, 255, 0.98);
+  margin: 10rpx 6rpx; /* 极窄边距 */
+  background: #fff;
   padding: 0 16rpx; height: 72rpx; 
-  border-radius: 12rpx; box-sizing: border-box;
-  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.02);
+  border-radius: 12rpx; 
+  box-sizing: border-box;
 }
-
-.notice-icon { 
-  height: 100%; margin-right: 12rpx; font-size: 32rpx; color: #ff4d4f; 
-  display: flex; align-items: center; flex-shrink: 0;
-}
+.notice-icon { height: 100%; margin-right: 12rpx; font-size: 32rpx; color: #ff4d4f; display: flex; align-items: center; flex-shrink: 0;}
 .notice-swiper { flex: 1; height: 100%; }
-.notice-text { 
-  height: 72rpx; line-height: 72rpx; 
-  font-size: 26rpx; color: #333; 
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
+.notice-text { height: 72rpx; line-height: 72rpx; font-size: 26rpx; color: #333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
 
-/* === 3. 吸顶分类导航 === */
+/* === 3. 分类导航 === */
 .category-bar { 
   position: sticky; top: 0; z-index: 999;
   width: 100%; overflow: hidden;
   padding: 10rpx 0 20rpx; 
-  background: #f5f5f5; 
+  background: #f2f2f2; 
 }
-
-.cat-scroll { 
-  width: 100%; white-space: nowrap; display: flex; height: 70rpx;      
-  box-sizing: border-box; 
-}
-
+.cat-scroll { width: 100%; white-space: nowrap; display: flex; height: 70rpx; box-sizing: border-box; }
 .cat-item { 
-  display: inline-block;
-  padding: 0 32rpx; 
+  display: inline-block; padding: 0 32rpx; 
   height: 60rpx; line-height: 60rpx; 
   font-size: 28rpx; color: #666; background: #fff; border-radius: 30rpx; 
   margin-right: 20rpx; flex-shrink: 0;
-  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.02); transition: all 0.3s; 
 }
-.cat-item:first-child { margin-left: 10rpx; }
-.cat-item:last-child { margin-right: 10rpx; }
-.cat-item.active { 
-  background: #ffc300; color: #000; font-weight: bold; 
-  transform: scale(1.05); box-shadow: 0 4rpx 12rpx rgba(255, 195, 0, 0.4);
-}
+.cat-item:first-child { margin-left: 6rpx; }
+.cat-item.active { background: #ffc300; color: #000; font-weight: bold;}
 
-/* === ✨✨✨ 4. 商品列表 (标准方块双列版) ✨✨✨ === */
+/* === ✨✨✨ 4. 商品列表 (极限宽度修正版) ✨✨✨ === */
+/* 对应的 WXML 类名是 .goods-list */
 .goods-list { 
-  /* 🟢 核心修改：就像那个绿色方块图 */
-  /* 外部只留 10rpx 的极小边距 */
-  padding: 0 10rpx;
+  /* 🔴 核心修改：左右只留 4rpx (约2像素) 的缝隙 */
+  /* 如果还嫌不够宽，可以改成 0，但 4rpx 是比较好看的极限 */
+  padding: 0 4rpx;
   
-  /* 使用网格布局，强制两列 */
+  /* 强制两列网格 */
   display: grid;
   grid-template-columns: 1fr 1fr;
   
-  /* 中间缝隙也是 10rpx */
-  gap: 120rpx;
+  /* 中间缝隙也是 4rpx */
+  gap: 4rpx;
 }
 
+/* 对应的 WXML 类名是 .goods-item */
 .goods-item {
   background: #fff; 
-  border-radius: 15rpx; /* 小圆角，看起来整齐 */
+  border-radius: 12rpx; 
   overflow: hidden;
-  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.03); 
+  /* 这是一个向下的弹性盒子 */
   display: flex; flex-direction: column;
-  width: 130%;
+  width: 100%; 
 }
 
+/* 对应的 WXML 类名是 .goods-img */
 .goods-img { 
   width: 100%; 
-  /* 图片高度设置为正方形左右，显得整齐 */
-  height: 360rpx; 
-  background: #f0f0f0; 
+  /* 图片高度 380rpx，视觉上很大气 */
+  height: 380rpx; 
+  background: #f8f8f8; 
   object-fit: cover;
 }
 
+/* 对应的 WXML 类名是 .goods-info */
 .goods-info { 
+  /* 内边距 */
   padding: 16rpx 12rpx; 
 }
 
+/* 对应的 WXML 类名是 .name */
 .name { 
-  font-size: 30rpx; 
-  font-weight: 800; color: #333; 
-  margin-bottom: 8rpx; display: block; 
+  font-size: 30rpx; font-weight: 800; color: #333; 
+  margin-bottom: 8rpx; 
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
 }
 
+/* 对应的 WXML 类名是 .desc */
 .desc { 
-  font-size: 25rpx; color: #999; 
-  margin-bottom: 16rpx; display: block; 
+  font-size: 24rpx; color: #999; 
+  margin-bottom: 20rpx; /* 把价格区往下顶一点，留出空间 */
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis; 
 }
 
+/* 对应的 WXML 类名是 .price-row */
 .price-row { 
-  display: flex; align-items: center; justify-content: space-between; 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
 }
 
-.price-group { display: flex; align-items: baseline; color: #ff4d4f; font-weight: bold; }
+/* 对应的 WXML 类名是 .price-group */
+.price-group { 
+  display: flex; 
+  align-items: baseline; 
+  color: #ff4d4f; 
+  font-weight: bold; 
+}
+
+/* 您 WXML 里用的类名是 .currency, .price, .unit */
 .currency { font-size: 24rpx; }
-.price { font-size: 38rpx; margin: 0 2rpx; letter-spacing: -1rpx; }
+.price { font-size: 40rpx; margin: 0 2rpx; line-height: 1; }
 .unit { font-size: 22rpx; color: #999; font-weight: normal; }
 
+/* 对应的 WXML 类名是 .buy-btn */
+/* 这里没改您的文字，只改了按钮样式 */
 .buy-btn { 
   background: #333; color: #ffd700; 
   font-size: 24rpx; padding: 10rpx 20rpx; 
