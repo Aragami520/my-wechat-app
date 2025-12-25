@@ -1,0 +1,72 @@
+/* pages/admin/index.wxss */
+page { background-color: #f5f7fa; padding-bottom: 60rpx; }
+.container { padding: 30rpx; }
+
+/* 顶部状态 */
+.header-status { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30rpx; }
+.shop-name { font-size: 32rpx; font-weight: bold; color: #333; }
+.live-tag { font-size: 22rpx; color: #07c160; background: rgba(7, 193, 96, 0.1); padding: 6rpx 16rpx; border-radius: 20rpx; display: flex; align-items: center; }
+.dot { width: 10rpx; height: 10rpx; background: #07c160; border-radius: 50%; margin-right: 8rpx; animation: blink 1.5s infinite; }
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+/* 看板网格 */
+.dashboard-grid { display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 40rpx; }
+.card { 
+  width: 48%; background: #fff; border-radius: 16rpx; padding: 24rpx; 
+  box-sizing: border-box; margin-bottom: 24rpx; box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.03);
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+
+/* 彩色边框装饰 */
+.green-border { border-left: 8rpx solid #07c160; }
+.blue-border { border-left: 8rpx solid #1890ff; }
+.orange-border { border-left: 8rpx solid #ff7a45; }
+.purple-border { border-left: 8rpx solid #722ed1; }
+
+.card-header text { font-size: 24rpx; color: #888; }
+.card-num { font-size: 44rpx; font-weight: bold; color: #333; margin: 16rpx 0; }
+.card-sub { font-size: 20rpx; color: #aaa; }
+.card-sub.highlight { color: #ff7a45; }
+
+/* 订单列表区 */
+.section-title { font-size: 30rpx; font-weight: bold; color: #333; margin-bottom: 24rpx; }
+
+.order-item { background: #fff; border-radius: 16rpx; padding: 30rpx; margin-bottom: 24rpx; box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.02); }
+.item-top { display: flex; justify-content: space-between; border-bottom: 1rpx solid #f0f0f0; padding-bottom: 20rpx; margin-bottom: 20rpx; }
+.time { font-size: 24rpx; color: #999; }
+.status-tag { font-size: 24rpx; color: #ff7a45; background: #fff7e6; padding: 4rpx 12rpx; border-radius: 8rpx; }
+
+.item-content .row { display: flex; font-size: 26rpx; margin-bottom: 12rpx; color: #555; }
+.item-content .label { color: #999; width: 90rpx; flex-shrink: 0; }
+.item-content .val { flex: 1; }
+.item-content .price { color: #333; font-weight: bold; }
+.address-box { background: #f9f9f9; padding: 12rpx; border-radius: 8rpx; font-size: 24rpx; color: #666; }
+
+/* 按钮 */
+.item-actions { display: flex; justify-content: flex-end; gap: 20rpx; margin-top: 24rpx; border-top: 1rpx solid #f0f0f0; padding-top: 20rpx; }
+.btn { margin: 0 !important; font-size: 26rpx; font-weight: normal; }
+.btn-refund { background: #fff !important; border: 1rpx solid #ddd !important; color: #666 !important; }
+.btn-ship { background: #07c160 !important; color: #fff !important; }
+.btn-hover { opacity: 0.8; }
+
+.empty-state { text-align: center; color: #999; padding: 60rpx 0; font-size: 26rpx; }
+
+/* 发货地址卡片样式 */
+.address-card {
+  background: #f0f5ff; /* 浅蓝色背景，一眼看到 */
+  padding: 20rpx;
+  border-radius: 12rpx;
+  margin: 20rpx 0;
+  border: 1px solid #d6e4ff;
+}
+.user-row {
+  display: flex; align-items: center; margin-bottom: 10rpx;
+}
+.u-name { font-size: 32rpx; font-weight: bold; color: #333; margin-right: 20rpx; }
+.u-phone { font-size: 32rpx; font-weight: bold; color: #1890ff; }
+.copy-btn {
+  font-size: 20rpx; color: #1890ff; border: 1px solid #1890ff;
+  padding: 2rpx 10rpx; border-radius: 6rpx; margin-left: auto;
+}
+.u-address { font-size: 28rpx; color: #555; line-height: 1.4; }
+.u-remark { margin-top: 10rpx; font-size: 26rpx; color: #fa8c16; background: #fff7e6; padding: 4rpx 10rpx; display: inline-block; border-radius: 6rpx; }

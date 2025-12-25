@@ -1,0 +1,68 @@
+<view class="container">
+  
+  <view class="empty-box" wx:if="{{orderList.length === 0}}">
+    <view class="empty-text">暂无订单</view>
+  </view>
+
+  <block wx:else>
+    <view class="order-card" wx:for="{{orderList}}" wx:key="_id">
+      
+      <view class="card-header">
+        <text class="time">{{item.timeStr}}</text>
+        <view class="status-box">
+          <text wx:if="{{item.status === 'PAID'}}" style="color:#fa8c16">待发货</text>
+          <text wx:elif="{{item.status === 'SHIPPED'}}" style="color:#1aad19">配送中</text>
+          <text wx:elif="{{item.status === 'REFUNDING'}}" style="color:#ff4d4f">退款中</text>
+          <text wx:elif="{{item.status === 'REFUNDED'}}" style="color:#999">已退款</text>
+          <text wx:else>{{item.status}}</text>
+        </view>
+      </view>
+
+      <view class="card-body">
+        <image class="goods-img" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="goods-info">
+          <view class="goods-name">{{item.productName || item.name}}</view>
+          <view class="goods-detail">数量 x{{item.count}}</view>
+          <view class="goods-price"><text class="currency">¥</text>{{item.totalPrice}}</view>
+        </view>
+      </view>
+
+      <view class="express-box" wx:if="{{item.expressNo}}">
+        <view class="express-row">
+          <text class="exp-label">物流单号</text>
+          <text class="exp-no" selectable>{{item.expressNo}}</text>
+        </view>
+        <view style="display:flex;">
+          <view class="btn-copy" bindtap="copyNo" data-no="{{item.expressNo}}">复制</view>
+        </view>
+      </view>
+
+      <view class="card-footer">
+        
+        <view class="btn btn-trace" 
+              wx:if="{{item.expressNo}}" 
+              bindtap="viewLogistics" 
+              data-no="{{item.expressNo}}">
+          🔍 查物流
+        </view>
+
+        <view class="btn btn-refund" 
+              wx:if="{{item.status === 'PAID' || item.status === 'SHIPPED'}}" 
+              bindtap="applyRefund" 
+              data-item="{{item}}">
+          申请退款
+        </view>
+
+        <view class="btn btn-delete" 
+              bindtap="deleteOrder" 
+              data-id="{{item._id}}">
+          删除
+        </view>
+
+      </view>
+
+    </view>
+  </block>
+  
+  <view class="footer-tip">-- 到底啦 --</view>
+</view>

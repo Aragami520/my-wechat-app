@@ -1,0 +1,75 @@
+<block wx:if="{{isAdmin}}">
+<view class="container">
+  
+  <view class="header-status">
+    <view class="shop-name">🌽 山西源头糯玉米 · 商家控制台</view>
+    <view class="live-tag"><view class="dot"></view> 实时监控中</view>
+  </view>
+
+  <view class="dashboard-grid">
+    <view class="card green-border">
+      <view class="card-header"><text>今日成交 (元)</text></view>
+      <view class="card-num">¥ {{stats.todaySales}}</view>
+    </view>
+    <view class="card blue-border">
+      <view class="card-header"><text>今日订单 (笔)</text></view>
+      <view class="card-num">{{stats.todayCount}}</view>
+    </view>
+    <view class="card orange-border">
+      <view class="card-header"><text>待发货</text></view>
+      <view class="card-num" style="color: #ff7a45">{{stats.pendingShip}}</view>
+    </view>
+    <view class="card purple-border">
+      <view class="card-header"><text>退款申请</text></view>
+      <view class="card-num" style="color: #ff4d4f">{{stats.pendingRefund}}</view>
+    </view>
+  </view>
+
+  <view class="order-section">
+    <view class="section-title">📦 待发货 / 待处理 ({{pendingOrders.length}})</view>
+
+    <block wx:if="{{pendingOrders.length > 0}}">
+      <view class="order-item" wx:for="{{pendingOrders}}" wx:key="_id">
+        
+        <view class="item-top">
+          <text class="time">{{item.createTimeStr}}</text>
+          <text class="status-tag" 
+                style="{{item.displayStatus.indexOf('退款') > -1 ? 'color:#ff4d4f; background:#fff1f0; border:1px solid #ffa39e' : ''}}">
+            {{item.displayStatus}}
+          </text>
+        </view>
+        
+        <view class="product-box">
+          <text class="p-name">{{item.productName || '糯玉米'}}</text>
+          <text class="p-count">x {{item.count}}</text>
+          <text class="p-price">¥{{item.totalFee / 100}}</text>
+        </view>
+
+        <view class="address-card">
+          <view class="user-row">
+            <text class="u-name">{{item.address.userName}}</text>
+            <text class="u-phone" selectable user-select>{{item.address.telNumber}}</text>
+            <view class="copy-btn" bindtap="copyAddress" data-address="{{item.address}}">复制信息</view>
+          </view>
+          <view class="u-address" selectable user-select>
+            {{item.address.provinceName}}{{item.address.cityName}}{{item.address.countyName}} {{item.address.detailInfo}}
+          </view>
+          <view class="u-remark" wx:if="{{item.remark}}">
+            <text class="tag">备注</text> {{item.remark}}
+          </view>
+        </view>
+
+        <view class="item-actions">
+          <button class="btn btn-refund" size="mini" bindtap="handleRefund" data-id="{{item._id}}">退款/拒绝</button>
+          <button class="btn btn-ship" size="mini" bindtap="handleShip" data-id="{{item._id}}">填单发货</button>
+        </view>
+      </view>
+    </block>
+
+    <view wx:else class="empty-state">
+      <view style="font-size: 60rpx; margin-bottom: 20rpx;">🍵</view>
+      <text>暂无新订单，休息一下吧</text>
+    </view>
+  </view>
+</view>
+</block>

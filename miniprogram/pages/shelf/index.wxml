@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="empty-box">
+    <view class="icon">🚧</view> 
+    <view class="title">功能升级中</view>
+    <view class="desc">程序员正在通宵种玉米，敬请期待...</view>
+    
+    <navigator open-type="switchTab" url="/pages/index/index" class="back-btn">
+      去首页逛逛
+    </navigator>
+  </view>
+</view>

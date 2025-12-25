@@ -1,0 +1,107 @@
+/* pages/me/index.wxss */
+page { 
+  background-color: #f5f7fa; 
+  padding-bottom: 40rpx; 
+}
+.page-container { padding-top: 10rpx; }
+
+/* === 1. 顶部用户信息卡片 (深色背景) === */
+.user-header-card {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af); /* 深蓝绿渐变 */
+  color: #fff; /* 强制白字 */
+  
+  /* 形状控制 */
+  margin: 20rpx 12rpx;
+  border-radius: 24rpx;
+  padding: 50rpx 40rpx;
+  position: relative; 
+  overflow: hidden; 
+  box-shadow: 0 8rpx 20rpx rgba(44, 62, 80, 0.4);
+}
+
+.bg-decoration {
+  position: absolute; right: 10rpx; bottom: -30rpx;
+  font-size: 160rpx; opacity: 0.15; transform: rotate(15deg); color: #fff;
+}
+
+.user-info-content {
+  display: flex; align-items: center; position: relative; z-index: 2;
+}
+
+.avatar-wrapper {
+  padding: 0; margin: 0; background: transparent;
+  width: 120rpx; height: 120rpx; border-radius: 50%;
+  margin-right: 30rpx; position: relative;
+  border: 4rpx solid rgba(255,255,255,0.5);
+  flex-shrink: 0;
+}
+.avatar-wrapper::after { border: none; }
+.avatar { width: 100%; height: 100%; border-radius: 50%; background: #fff; }
+
+.camera-icon {
+  position: absolute; bottom: 0; right: 0;
+  background: rgba(0,0,0,0.6); color: #fff; font-size: 20rpx;
+  width: 36rpx; height: 36rpx; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.text-area { display: flex; flex-direction: column; flex: 1; }
+
+.nickname-input {
+  font-size: 36rpx; font-weight: bold; color: #fff; /* 白字 */
+  margin-bottom: 14rpx; height: 50rpx; line-height: 50rpx;
+  border-bottom: 1px dashed rgba(255,255,255,0.4);
+  width: 100%;
+}
+
+.vip-badge {
+  background: linear-gradient(90deg, #fce38a, #f38181);
+  color: #854d0e; font-size: 22rpx; font-weight: bold;
+  padding: 6rpx 20rpx; border-radius: 30rpx;
+  display: inline-flex; align-items: center; align-self: flex-start;
+}
+.vip-icon { margin-right: 8rpx; }
+
+/* === 2. 通用浅色卡片 (global-card) === */
+.global-card {
+  background: linear-gradient(to bottom, #ffffff, #fffdf5); /* 暖白渐变 */
+  margin: 24rpx 12rpx;
+  border-radius: 24rpx;
+  padding: 30rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.03);
+  border: 1px solid rgba(255, 248, 225, 0.5);
+}
+
+.card-title { 
+  font-size: 30rpx; font-weight: bold; margin-bottom: 30rpx; color: #333; 
+  border-left: 8rpx solid #ffc300; padding-left: 16rpx; 
+}
+
+/* === 3. 图标与菜单 === */
+.order-icons-row { display: flex; justify-content: space-between; align-items: flex-start; width: 100%; }
+.icon-item { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1; position: relative; }
+
+/* 客服按钮修复 */
+button.icon-item {
+  background-color: transparent !important; padding: 0 !important; margin: 0 !important;
+  line-height: normal !important; width: 25% !important; border-radius: 0 !important; font-weight: normal !important;
+}
+button.icon-item::after { border: none !important; }
+
+.icon-box { font-size: 56rpx; margin-bottom: 12rpx; display: block;}
+.icon-item text { font-size: 26rpx; color: #555; display: block;}
+
+.menu-item {
+  display: flex; justify-content: space-between; align-items: center; height: 100rpx; 
+  border-bottom: 1rpx solid #f5f5f5; font-size: 28rpx; color: #333;
+  background: transparent; padding: 0; margin: 0; width: 100%; font-weight: normal;
+}
+.menu-item::after { border: none; }
+.menu-item:last-child { border-bottom: none; }
+
+.menu-left { display: flex; align-items: center; }
+.menu-icon { font-size: 34rpx; margin-right: 20rpx; width: 44rpx; text-align: center; }
+.arrow { color: #ddd; font-size: 26rpx; }
+.admin-entry { margin-top: 10rpx; border-top: 1px dashed #eee; padding-top: 10rpx; }
+.admin-text { font-weight: bold; color: #fa8c16; }
+.version-info { text-align: center; color: #ccc; font-size: 22rpx; margin: 40rpx 0; }

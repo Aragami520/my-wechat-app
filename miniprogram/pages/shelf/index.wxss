@@ -1,0 +1,44 @@
+page {
+  background-color: #f8faff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40rpx;
+  margin-top: -100rpx; /* 稍微往上提一点，视觉更平衡 */
+}
+
+.icon {
+  font-size: 100rpx;
+  margin-bottom: 30rpx;
+  opacity: 0.8;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.desc {
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 60rpx;
+}
+
+.back-btn {
+  background: #ffc300;
+  color: #333;
+  padding: 20rpx 60rpx;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  box-shadow: 0 4rpx 10rpx rgba(255, 195, 0, 0.3);
+}

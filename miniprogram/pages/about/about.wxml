@@ -1,0 +1,44 @@
+<view class="container">
+  
+  <view class="brand-header">
+    <view class="brand-title">山西源头 · 糯玉米</view>
+    <view class="brand-slogan">专注黑土地种植 15 年</view>
+  </view>
+
+  <view class="text-section">
+    <view class="section-title">
+      <text class="icon">🌽</text> 我们的故事
+    </view>
+    <view class="desc-text">
+      我们是来自山西的农产品源头工厂。这里的昼夜温差大，土壤肥沃，孕育出了口感独特的糯玉米。
+      <br/>
+      从田间地头到真空包装，我们坚持“清晨采摘，4小时锁鲜”，只为让远方的您尝到第一口家乡味。
+    </view>
+  </view>
+
+  <view class="factory-section">
+    
+    <view class="section-title">
+      <text class="icon">🛡️</text> 食品安全检测报告
+    </view>
+    <view class="desc-text" style="margin-bottom: 20rpx; color: #999; font-size: 24rpx;">
+      每一批次均经过权威机构检测，各项指标符合国家标准，请您放心食用。
+    </view>
+
+    <view class="report-box">
+      <view class="report-name">检测报告一：甜糯玉米1号</view>
+      <image class="pdf-img" mode="widthFix" src="cloud://cloud1-3gwzyszw481ccd3d.636c-cloud1-3gwzyszw481ccd3d-1391405188/新建文件夹/A2250712213101001C_甜糯玉米1号_北京岳泰华生物科技有限公司_BR27422001_长图.png"></image>
+    </view>
+
+    <view class="report-box">
+      <view class="report-name">检测报告二：真空软包装检测</view>
+      <image class="pdf-img" mode="widthFix" src="cloud://cloud1-3gwzyszw481ccd3d.636c-cloud1-3gwzyszw481ccd3d-1391405188/新建文件夹/HM-W25090109真空软包装甜糯玉米_长图.png"></image>
+    </view>
+
+  </view>
+
+  <view class="footer">
+    <text>—— 正宗山西味，放心源头货 ——</text>
+  </view>
+
+</view>

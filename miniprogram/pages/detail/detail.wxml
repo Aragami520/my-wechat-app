@@ -1,0 +1,126 @@
+<view class="container">
+  
+  <swiper class="gallery" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" indicator-active-color="#ffc300">
+    <block wx:if="{{goods.images && goods.images.length > 0}}">
+      <swiper-item wx:for="{{goods.images}}" wx:key="*this">
+        <image src="{{item}}" mode="aspectFill" class="slide-image"></image>
+      </swiper-item>
+    </block>
+    <block wx:else>
+      <swiper-item>
+        <image src="{{goods.image || goods.img}}" mode="aspectFill" class="slide-image"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class="info-card global-card">
+    <view class="price-row">
+      <view class="price-group">
+        <text class="symbol">¥</text>
+        <text class="price-num">{{goods.price}}</text>
+        <text class="unit">/{{goods.unit || '箱'}}</text>
+      </view>
+      <text class="sold-count">已售 1000+ 件</text> 
+    </view>
+    
+    <view class="title">{{goods.name}}</view>
+    
+    <view class="spec-info">
+      📦 规格：{{goods.spec || '约10根/箱 (净重约4-5斤)'}}
+    </view>
+
+    <view class="desc">{{goods.desc}}</view>
+  </view>
+
+  <view class="count-box global-card" style="flex-direction: row; justify-content: space-between; align-items: center;">
+      <text class="count-label">购买数量</text>
+      <view class="stepper">
+        <text class="{{buyCount <= 1 ? 'disabled' : ''}}" bindtap="minusCount">-</text>
+        <input type="number" value="{{buyCount}}" disabled />
+        <text bindtap="addCount">+</text>
+      </view>
+    </view>
+
+  <view class="service-card global-card">
+    <view class="service-item"><text class="icon">✅</text>坏果包赔</view>
+    <view class="service-item"><text class="icon">🚀</text>48小时发货</view>
+    <view class="service-item"><text class="icon">🏭</text>源头直发</view>
+  </view>
+
+  <view class="param-card global-card">
+    <view class="section-title">产品参数</view>
+    <view class="param-row">
+      <text class="label">产地</text>
+      <text class="value">山西省吕梁市</text>
+    </view>
+    <view class="param-row">
+      <text class="label">保质期</text>
+      <text class="value">常温 6 个月</text>
+    </view>
+    <view class="param-row">
+      <text class="label">储存方式</text>
+      <text class="value">阴凉干燥处或冷藏</text>
+    </view>
+    <view class="param-row">
+      <text class="label">食用方法</text>
+      <text class="value">开袋即食 / 蒸煮 / 烧烤</text>
+    </view>
+  </view>
+
+  <view class="detail-images global-card" style="padding: 0; overflow: hidden;">
+    <view class="detail-header" style="padding: 30rpx 30rpx 20rpx; text-align: center; font-weight: bold;">—— 商品详情 ——</view>
+    <image 
+      src="{{goods.detailImage || goods.image || goods.img}}" 
+      mode="widthFix" 
+      class="long-detail-img" 
+      style="width: 100%; display: block;"
+    ></image>
+    <view class="detail-text" style="padding: 30rpx;" wx:if="{{!goods.detailImage}}">
+      甄选优质黑土地种植，早晚温差大，造就了糯玉米独特的软糯口感。
+    </view>
+  </view>
+
+  <view class="comment-section global-card">
+    <view class="section-title">大家在问</view>
+    <view class="comment-list">
+      <block wx:if="{{commentList.length > 0}}">
+        <block wx:for="{{commentList}}" wx:key="_id">
+          <view class="comment-item">
+            <view class="c-header">
+              <view class="c-user">
+                <image class="c-avatar" src="{{item.avatarUrl || 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNQ0ia79fc42Mib4iaprj1W5kX71L8a2X6a2a/0'}}" mode="aspectFill"></image>
+                <text class="c-name">{{item.nickName || '匿名食客'}}</text>
+              </view>
+              <text class="c-time">{{item.displayTime}}</text>
+            </view>
+            <view class="c-content">{{item.content}}</view>
+            <view class="seller-reply" wx:if="{{item.reply}}">
+              <text class="s-label">商家回复：</text>{{item.reply}}
+            </view>
+          </view>
+        </block>
+      </block>
+      <view class="no-comment" wx:else>暂无留言，快来抢沙发~</view>
+    </view>
+    <view class="ask-box">
+      <input class="ask-input" placeholder="口感怎么样？甜不甜？" bindinput="onInputComment" value="{{myComment}}" confirm-type="send" bindconfirm="submitComment"></input>
+      <view class="send-btn" bindtap="submitComment">提问</view>
+    </view>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="icon-btn" bindtap="goHome">
+      <view>🏠</view>
+      <text>首页</text>
+    </view>
+    <button class="icon-btn contact-btn" open-type="contact">
+      <view>🎧</view>
+      <text>客服</text>
+    </button>
+    <view class="btn-group">
+      <view class="cart-btn" bindtap="addToCart">加入购物车</view>
+      <view class="buy-btn" bindtap="buyNow">立即购买</view>
+    </view>
+  </view>
+
+</view>

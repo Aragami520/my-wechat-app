@@ -1,0 +1,70 @@
+/* pages/about/about.wxss */
+page {
+  background-color: #f7f8fa;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-size='24' opacity='0.08'%3E🌽%3C/text%3E%3C/svg%3E");
+  background-attachment: fixed;
+  padding-bottom: 60rpx;
+}
+
+/* 1. 顶部品牌头图 */
+.brand-header {
+  background: linear-gradient(135deg, #333 0%, #444 100%);
+  padding: 60rpx 40rpx;
+  color: #fff;
+  margin-bottom: 30rpx;
+  position: relative;
+  overflow: hidden;
+}
+.brand-header::after {
+  content: "🌽"; position: absolute; right: -20rpx; bottom: -30rpx;
+  font-size: 180rpx; opacity: 0.1; transform: rotate(-15deg);
+}
+.brand-title { font-size: 44rpx; font-weight: bold; margin-bottom: 16rpx; letter-spacing: 2rpx; }
+.brand-slogan { font-size: 26rpx; opacity: 0.8; background: rgba(255,255,255,0.1); display: inline-block; padding: 6rpx 16rpx; border-radius: 30rpx;}
+
+/* 2. 通用卡片 */
+.text-section, .factory-section {
+  background: #fff;
+  margin: 0 24rpx 30rpx;
+  padding: 40rpx 30rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.05);
+}
+
+.section-title {
+  font-size: 32rpx; font-weight: bold; color: #333;
+  margin-bottom: 20rpx;
+  display: flex; align-items: center;
+  border-bottom: 1rpx solid #f5f5f5;
+  padding-bottom: 20rpx;
+}
+.icon { margin-right: 10rpx; font-size: 36rpx; }
+.desc-text { font-size: 28rpx; color: #555; line-height: 1.8; text-align: justify; }
+
+/* 3. 检测报告样式 */
+.report-box {
+  margin-top: 40rpx;
+  background: #fdfdfd;
+  border: 1rpx solid #eee;
+  padding: 20rpx;
+  border-radius: 12rpx;
+}
+
+.report-name {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+  padding-left: 10rpx;
+  border-left: 6rpx solid #ffc300; /* 黄色小竖条装饰 */
+}
+
+.pdf-img {
+  width: 100%;       
+  display: block;    
+  border-radius: 8rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.05); /* 给图片加点阴影，更有质感 */
+}
+
+/* 4. 底部 */
+.footer { text-align: center; color: #ccc; font-size: 24rpx; margin-top: 40rpx; }

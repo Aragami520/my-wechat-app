@@ -1,0 +1,45 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+
+button {
+  background: initial;
+}
+
+button:focus{
+  outline: 0;
+}
+
+button::after{
+  border: none;
+}
+
+
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* ✨✨✨ 全局通用高级卡片 ✨✨✨ */
+.global-card {
+  /* 1. 宽卡片，左右边距极小 */
+  margin: 24rpx 12rpx !important;
+  /* 2. 大圆角 */
+  border-radius: 24rpx !important;
+  /* 3. 淡米色渐变背景 + 微纹理 */
+  background: linear-gradient(to bottom right, #ffffff, #fafafa) !important;
+  /* 4. 柔和、有层次的阴影 */
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.05), 0 2rpx 8rpx rgba(0, 0, 0, 0.03) !important;
+  /* 5. 内部内边距 */
+  padding: 30rpx !important;
+  /* 6. 确保盒模型正确 */
+  box-sizing: border-box;
+  /* 加一个极淡的边框增加质感 */
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}

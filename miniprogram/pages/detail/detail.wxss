@@ -1,0 +1,271 @@
+/* pages/detail/detail.wxss */
+page {
+  background-color: #f7f8fa; /* 背景色稍微加深一点点，对比度更好 */
+  padding-bottom: 140rpx; /* 避开底部栏 */
+}
+
+/* 轮播图：贴顶，不留白 */
+.gallery {
+  width: 100%;
+  height: 750rpx;
+  background: #fff;
+}
+.slide-image { width: 100%; height: 100%; }
+
+/* ✨✨✨ 通用卡片样式 (强制对齐核心) ✨✨✨ */
+.info-card, .service-card, .param-card, .detail-images, .comment-section, .count-box {
+  /* 1. 霸道宽度：强制占屏幕 94%，左右各留 3% */
+  width: 94%;
+  /* 2. 自动居中 */
+  margin: 24rpx auto; 
+  /* 3. 背景与圆角 */
+  background: #fff;
+  border-radius: 24rpx;
+  /* 4. 阴影优化：更柔和 */
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+  /* 5. 内部间距 */
+  padding: 36rpx 30rpx;
+  box-sizing: border-box;
+  /* 6. 溢出隐藏，保证圆角不被切 */
+  overflow: hidden;
+  position: relative;
+}
+
+/* === 特殊美化：价格信息卡 === */
+.info-card {
+  /* 给顶部加一点点暖色渐变，像阳光照下来的感觉 */
+  background: linear-gradient(to bottom, #fffdf0 0%, #ffffff 30%);
+  border: 1px solid rgba(255, 195, 0, 0.1); /* 极淡的金边 */
+}
+
+.price-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20rpx; }
+.price-group { color: #fa2c19; display: flex; align-items: baseline; }
+.symbol { font-size: 32rpx; font-weight: bold; margin-right: 4rpx; }
+.price-num { font-size: 64rpx; font-weight: 800; line-height: 1; letter-spacing: -2rpx; }
+.unit { font-size: 26rpx; color: #999; margin-left: 8rpx; font-weight: normal;}
+.sold-count { 
+  font-size: 24rpx; color: #888; 
+  background: rgba(0,0,0,0.03); padding: 6rpx 16rpx; border-radius: 20rpx;
+}
+
+.title { 
+  font-size: 38rpx; font-weight: 900; color: #333; 
+  line-height: 1.4; margin-bottom: 20rpx; letter-spacing: 1rpx;
+}
+
+.spec-info {
+  background: #f6ffed; color: #52c41a; border: 1px solid #b7eb8f;
+  font-size: 24rpx; padding: 10rpx 20rpx; border-radius: 12rpx;
+  display: inline-block; font-weight: bold; margin-bottom: 20rpx;
+}
+.desc { font-size: 28rpx; color: #666; line-height: 1.6; }
+
+/* === 购买数量卡片 === */
+.count-box {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.count-label { font-size: 32rpx; font-weight: bold; color: #333; }
+.stepper { 
+  display: flex; align-items: center; 
+  background: #f5f5f5; border-radius: 12rpx; padding: 6rpx;
+}
+.stepper text { 
+  width: 70rpx; height: 60rpx; line-height: 60rpx; text-align: center; 
+  font-size: 36rpx; color: #333; font-weight: bold;
+}
+.stepper input { 
+  width: 80rpx; height: 60rpx; text-align: center; 
+  font-size: 32rpx; font-weight: bold; color: #333; 
+  background: #fff; border-radius: 8rpx; margin: 0 4rpx; box-shadow: 0 2rpx 4rpx rgba(0,0,0,0.05);
+}
+
+/* === 服务保障卡片 === */
+.service-card { 
+  display: flex; justify-content: space-between; 
+  background: #fdfbf5; /* 淡米色背景 */
+  border: 1px solid rgba(255, 195, 0, 0.1);
+}
+.service-item { 
+  font-size: 26rpx; color: #8a6d3b; font-weight: bold; 
+  display: flex; align-items: center; 
+}
+
+/* === 产品参数卡片 === */
+.section-title { 
+  font-size: 32rpx; font-weight: 800; margin-bottom: 30rpx; color: #333;
+  position: relative; padding-left: 24rpx;
+}
+.section-title::before {
+  content: ''; position: absolute; left: 0; top: 6rpx; bottom: 6rpx;
+  width: 8rpx; background: #ffc300; border-radius: 4rpx;
+}
+
+.param-row { 
+  display: flex; margin-bottom: 24rpx; font-size: 28rpx; 
+  padding-bottom: 24rpx; border-bottom: 1px dashed #eee; 
+}
+.param-row:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+.label { width: 160rpx; color: #999; }
+.value { flex: 1; color: #333; font-weight: 500; }
+
+/* === 详情图卡片 === */
+.detail-images { padding: 0; } /* 图片卡片不需要内边距，为了让图片撑满 */
+.detail-header { 
+  padding: 30rpx 0; text-align: center; 
+  font-size: 26rpx; color: #ccc; letter-spacing: 4rpx; text-transform: uppercase;
+}
+.long-detail-img { width: 100%; display: block; }
+.detail-text { padding: 40rpx; font-size: 30rpx; color: #555; line-height: 1.8; text-align: justify; }
+
+/* === 评论区 (修复版) === */
+.comment-section {
+  /* 继承通用卡片样式 */
+  width: 94%; margin: 24rpx auto; background: #fff;
+  border-radius: 24rpx; padding: 30rpx;
+  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+/* 标题 */
+.section-title { 
+  font-size: 32rpx; font-weight: 800; margin-bottom: 30rpx; color: #333;
+  position: relative; padding-left: 24rpx; display: flex; align-items: center;
+}
+.section-title::before {
+  content: ''; position: absolute; left: 0; 
+  width: 8rpx; height: 32rpx; background: #ffc300; border-radius: 4rpx;
+}
+
+/* 单条评论 */
+.comment-item { 
+  border-bottom: 1px solid #f0f0f0; 
+  padding-bottom: 30rpx; 
+  margin-bottom: 30rpx; 
+}
+.comment-item:last-child { border-bottom: none; margin-bottom: 0; }
+
+/* 评论头部：头像名字在左，时间在右 */
+.c-header { 
+  display: flex; 
+  justify-content: space-between; /* 关键：左右撑开 */
+  align-items: center; 
+  margin-bottom: 16rpx; 
+}
+
+/* 左侧：头像+名字 */
+.c-user { 
+  display: flex; 
+  align-items: center; 
+}
+
+.c-avatar { 
+  width: 64rpx; height: 64rpx; 
+  border-radius: 50%; 
+  margin-right: 20rpx; 
+  border: 1px solid #f0f0f0;
+  flex-shrink: 0; /* 防止头像被挤扁 */
+}
+
+.c-name { 
+  font-size: 28rpx; 
+  color: #333; 
+  font-weight: bold; 
+}
+
+/* 右侧：时间 */
+.c-time { 
+  font-size: 24rpx; 
+  color: #999; 
+}
+
+/* 评论内容 */
+.c-content { 
+  font-size: 28rpx; 
+  color: #333; 
+  line-height: 1.6; 
+  margin-left: 84rpx; /* 让文字跟名字对齐，避开头像 */
+  margin-bottom: 16rpx;
+}
+
+/* 商家回复 */
+.seller-reply { 
+  background: #f9f9f9; 
+  padding: 20rpx; 
+  font-size: 26rpx; 
+  color: #666; 
+  border-radius: 12rpx; 
+  margin-left: 84rpx; /* 跟内容对齐 */
+  position: relative;
+}
+.seller-reply::before {
+  content: '商家回复：';
+  font-weight: bold;
+  color: #ff9900;
+  margin-right: 10rpx;
+}
+
+/* 底部提问框 */
+.ask-box { 
+  display: flex; 
+  align-items: center;
+  margin-top: 20rpx; 
+  padding-top: 20rpx;
+  border-top: 1px dashed #eee;
+}
+
+.ask-input { 
+  flex: 1; 
+  background: #f5f7fa; 
+  height: 72rpx; 
+  border-radius: 36rpx; 
+  padding: 0 30rpx; 
+  font-size: 28rpx; 
+  color: #333;
+  margin-right: 20rpx; 
+}
+
+.send-btn { 
+  width: 140rpx; 
+  height: 72rpx; 
+  line-height: 72rpx; 
+  background: #333; 
+  color: #fff; 
+  text-align: center; 
+  border-radius: 36rpx; 
+  font-size: 28rpx; 
+  font-weight: bold; 
+}
+
+/* === 底部栏 === */
+.bottom-bar {
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  height: 110rpx; background: #fff;
+  display: flex; align-items: center;
+  box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.06);
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 100;
+}
+.icon-btn {
+  width: 120rpx; height: 100%;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  background: transparent; padding: 0; margin: 0; line-height: 1.2;
+}
+.icon-btn::after { border: none; }
+.icon-btn view { font-size: 44rpx; margin-bottom: 4rpx; }
+.icon-btn text { font-size: 20rpx; color: #666; }
+
+.btn-group {
+  flex: 1; display: flex; height: 84rpx;
+  margin-right: 30rpx; border-radius: 42rpx; overflow: hidden;
+  box-shadow: 0 8rpx 16rpx rgba(250, 44, 25, 0.25);
+}
+.cart-btn { 
+  flex: 1; background: linear-gradient(90deg, #ffc300, #ff9900); 
+  color: #fff; font-size: 30rpx; font-weight: bold; 
+  display: flex; align-items: center; justify-content: center; 
+}
+.buy-btn { 
+  flex: 1; background: linear-gradient(90deg, #ff5000, #fa2c19); 
+  color: #fff; font-size: 30rpx; font-weight: bold; 
+  display: flex; align-items: center; justify-content: center; 
+}

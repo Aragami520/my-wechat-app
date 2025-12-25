@@ -1,0 +1,54 @@
+<view class="container">
+  
+  <view class="banner-box">
+    <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="5000" duration="1000" indicator-active-color="#fff">
+      <block wx:for="{{imgUrls}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <view class="notice-bar">
+    <view class="notice-icon">📢 新用户首单立减优惠进行中！  </view>
+    <swiper class="notice-swiper" autoplay="{{true}}" vertical="{{true}}" circular="{{true}}" interval="3000">
+      <swiper-item><view class="notice-text">今日 16:00 前下单，当天发货！🚀</view></swiper-item>
+      <swiper-item><view class="notice-text">新用户首单立减优惠进行中！🎁</view></swiper-item>
+    </swiper>
+  </view>
+
+  <view class="category-bar">
+    <scroll-view scroll-x="{{true}}" class="cat-scroll" enable-flex="{{true}}">
+      <block wx:for="{{categories}}" wx:key="*this">
+        <view 
+          class="cat-item {{currentCat === index ? 'active' : ''}}" 
+          bindtap="switchCategory" 
+          data-index="{{index}}">
+          {{item}}
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <view class="goods-list">
+    <block wx:for="{{goodsList}}" wx:key="_id">
+      <view class="goods-item" bindtap="goToDetail" data-goods="{{item}}">
+        <image class="goods-img" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="goods-info">
+          <text class="name">{{item.name}}</text>
+          <text class="desc">{{item.desc}}</text>
+          <view class="price-row">
+             <view class="price-group">
+               <text class="currency">¥</text>
+               <text class="price">{{item.price}}</text>
+               <text class="unit">/{{item.unit}}</text>
+             </view>
+             <view class="buy-btn">购买</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+</view>

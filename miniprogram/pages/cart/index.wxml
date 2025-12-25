@@ -1,0 +1,42 @@
+<view class="container">
+  
+  <view wx:if="{{cartList.length === 0}}" class="empty-cart">
+    <text>🛒 购物车是空的，快去进货！</text>
+  </view>
+
+  <view class="cart-list">
+    <block wx:for="{{cartList}}" wx:key="_id">
+      <view class="cart-item">
+        <view class="checkbox {{item.selected ? 'checked' : ''}}" bindtap="onCheckItem" data-index="{{index}}">
+           <text wx:if="{{item.selected}}">✓</text>
+        </view>
+        
+        <image class="g-img" src="{{item.image}}" mode="aspectFill"></image>
+        
+        <view class="g-info">
+          <view class="g-name">{{item.name}}</view>
+          <view class="g-bottom">
+            <text class="g-price">¥{{item.price}}</text>
+            <text class="g-count">x{{item.count}}</text>
+          </view>
+        </view>
+
+        <view class="del-btn" bindtap="deleteItem" data-id="{{item._id}}">🗑️</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="footer-bar">
+    <view class="all-check" bindtap="onSelectAll">
+      <view class="checkbox {{isAllSelected ? 'checked' : ''}}">
+        <text wx:if="{{isAllSelected}}">✓</text>
+      </view>
+      <text>全选</text>
+    </view>
+    <view class="total-box">
+      合计: <text class="t-price">¥{{totalPrice}}</text>
+    </view>
+    <view class="settle-btn" bindtap="submitCart">去结算</view>
+  </view>
+
+</view>

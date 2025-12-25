@@ -1,0 +1,87 @@
+<view class="page-container">
+  
+  <view class="user-header-card">
+    <view class="bg-decoration">🌽</view>
+    
+    <view class="user-info-content">
+      <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+        <image class="avatar" src="{{userInfo.avatarUrl || 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNQ0ia79fc42Mib4iaprj1W5kX71L8a2X6a2a/0'}}" mode="aspectFill"></image>
+        <view class="camera-icon">📷</view>
+      </button>
+
+      <view class="text-area">
+        <input type="nickname" class="nickname-input" placeholder="点击输入昵称" value="{{userInfo.nickName}}" bindblur="onInputNickname" placeholder-style="color:rgba(255,255,255,0.6);" />
+        
+        <view class="vip-badge">
+          <text class="vip-icon">💎</text>
+          <text>源头工厂直供会员</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-card global-card">
+    <view class="card-title">我的订单</view>
+    <view class="order-icons-row">
+      <view class="icon-item" bindtap="goToOrder" data-type="1">
+        <view class="icon-box">📦</view>
+        <text>待发货</text>
+      </view>
+      <view class="icon-item" bindtap="goToOrder" data-type="2">
+        <view class="icon-box">🚚</view>
+        <text>待收货</text>
+      </view>
+      <button class="icon-item btn-reset" open-type="contact" hover-class="none">
+        <view class="icon-box">🎧</view>
+        <text>售后/客服</text>
+      </button>
+      <view class="icon-item" bindtap="goToOrder" data-type="0">
+        <view class="icon-box">📃</view>
+        <text>全部订单</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="menu-card global-card">
+    
+    <view class="menu-item" bindtap="chooseAddress">
+      <view class="menu-left">
+        <text class="menu-icon">📍</text>
+        <text>收货地址管理</text>
+      </view>
+      <text class="arrow">></text>
+    </view>
+
+    <button class="menu-item contact-btn btn-reset" open-type="contact" hover-class="none" style="width: 100%; padding: 30rpx 0; justify-content: space-between;">
+      <view class="menu-left">
+        <text class="menu-icon">💬</text>
+        <text>联系官方客服</text>
+      </view>
+      <text class="arrow">></text>
+    </button>
+
+    <view class="menu-item" bindtap="goToAbout">
+      <view class="menu-left">
+        <text class="menu-icon">🌽</text>
+        <text>关于我们 & 检测报告</text>
+      </view>
+      <text class="arrow">></text>
+    </view>
+
+    <view class="menu-item admin-entry" bindtap="goToAdmin" wx:if="{{isAdmin}}">
+      <view class="menu-left">
+        <text class="menu-icon" style="color: #fa8c16;">📈</text>
+        <text class="admin-text" style="color: #fa8c16; font-weight: bold;">商家数据看板</text>
+      </view>
+      <text class="arrow" style="color: #fa8c16;">></text>
+    </view>
+
+  </view>
+
+  <view class="version-info">v1.0.6 正宗山西好味道</view>
+  
+  <view style="text-align:center; color:#ccc; font-size:20rpx; padding:20rpx; user-select:text;">
+    我的ID: {{myOpenId}} <text style="color:#999" bindtap="copyId">(长按复制)</text>
+  </view>
+
+</view>
